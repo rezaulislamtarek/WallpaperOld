@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/categoryFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.diatomicsoft.wallpaperapp.ui.category.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_imagesFragment"
+            app:destination="@id/imagesFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_navDrawerFragment"
+            app:destination="@id/navDrawerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagesFragment"
+        android:name="com.diatomicsoft.wallpaperapp.ui.image.ImagesFragment"
+        android:label="fragment_images"
+        tools:layout="@layout/fragment_images" >
+        <action
+            android:id="@+id/action_imagesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument
+            android:name="category"
+            app:argType="com.diatomicsoft.wallpaperapp.model.data.Category" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.diatomicsoft.wallpaperapp.ui.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/navDrawerFragment"
+        android:name="com.diatomicsoft.wallpaperapp.ui.nav.NavDrawerFragment"
+        android:label="NavDrawerFragment" >
+        <action
+            android:id="@+id/action_navDrawerFragment_to_favFragment"
+            app:destination="@id/favFragment" />
+        <action
+            android:id="@+id/action_navDrawerFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favFragment"
+        android:name="com.diatomicsoft.wallpaperapp.ui.favourite.FavFragment"
+        android:label="FavFragment" />
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="com.diatomicsoft.wallpaperapp.ui.download.DownloadFragment"
+        android:label="DownloadFragment" />
+</navigation>
